@@ -1,211 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cash App Contest</title>
-  <style>
-    /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #a1d99b, #ffffff);
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px;
-    }
-    .center {
-      text-align: center;
-    }
-    .image-container {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      margin-bottom: 30px;
-    }
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .image-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .image-overlay span {
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 5px;
-    }
-    .submit-btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px;
-      font-size: 18px;
-      cursor: pointer;
-      width: 100%;
-    }
-    .submit-btn:disabled {
-      background-color: #ccc;
-    }
-    .card {
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .social-card {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .social-card img {
-      width: 30px;
-      margin-right: 15px;
-    }
-    .footer {
-      background-color: #f1f1f1;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart $100 Gift Card Giveaway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #6a1b9a, #2c3e50);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #f9a825;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .gift-card-img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .text-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .text-section h2 {
+            font-size: 2em;
+            color: #f9a825;
+            margin-bottom: 15px;
+        }
+
+        .text-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .text-section ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .text-section p {
+            font-size: 1.1em;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            background: #f9a825;
+            color: #ffffff;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ffc107;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #ffffff;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="container">
-
-    <!-- Header Section -->
-    <div class="center">
-      <h1>Win $750 Cash App Giveaway!</h1>
-      <p>Enter our contest for a chance to win $750 sent directly to your Cash App</p>
-    </div>
-
-    <!-- Image Section -->
-    <div class="image-container">
-      <img src="https://i.ibb.co/r2v0KrTT/1696842423629-1.jpg" alt="Cash App Giveaway">
-      <div class="image-overlay">
-        <span>$750</span>
-      </div>
-    </div>
-
-    <!-- Form Section -->
-    <div id="form-container">
-      <div class="card">
-        <form id="contest-form">
-          <div class="form-group">
-            <label for="age">Q1: Are you over 18?</label><br>
-            <input type="radio" id="yes" name="age" value="yes"> Yes
-            <input type="radio" id="no" name="age" value="no"> No
-          </div>
-
-          <div class="form-group">
-            <label for="name">Q2: Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name">
-          </div>
-
-          <button type="submit" class="submit-btn" id="submit-btn" disabled>Enter Contest Now</button>
-        </form>
-      </div>
-
-      <div id="thank-you-message" class="card" style="display: none;">
-        <h2>Thank You, <span id="user-name"></span>!</h2>
-        <p>Your entry has been submitted. Good luck in the contest!</p>
-      </div>
-    </div>
-
-    <!-- Contest Requirements -->
-    <div class="card">
-      <h2>Contest Entry Requirements</h2>
-      <ul>
-        <li>Must be 18 years or older to participate</li>
-        <li>One entry per person</li>
-        <li>Contest ends May 31, 2025</li>
-        <li>Winner will be selected randomly and notified via email</li>
-        <li>Prize will be sent via Cash App within 48 hours of winner confirmation</li>
-        <li>Must have a valid Cash App account to receive the prize</li>
-      </ul>
-    </div>
-
-    <!-- Social Media Comments -->
-    <div class="card">
-      <h2>What People Are Saying</h2>
-
-      <div class="social-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Twitter_icon.svg" alt="Twitter">
-        <div>
-          <p><strong>@JennySmith</strong></p>
-          <p>Just got my $750 from the Cash App contest! Can't believe I won! Thank you so much! 🎉💰</p>
+    <div class="container">
+        <header class="header">
+            <h1>Win a $100 Walmart Gift Card!</h1>
+            <p>Your chance to shop big at Walmart for free!</p>
+        </header>
+        <div class="image-section">
+            <img src="https://i.ibb.co/mFyXZnx1/www.png" alt="Walmart Gift Card" class="gift-card-img">
         </div>
-      </div>
-
-      <div class="social-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Facebook_Logo_2023.png" alt="Facebook">
-        <div>
-          <p><strong>Sarah Williams</strong></p>
-          <p>The $750 Cash App giveaway is legit! It helped me pay my rent this month. Thank you!</p>
+        <div class="text-section">
+            <h2>Why Participate?</h2>
+            <ul>
+                <li>Shop your favorite items at Walmart for free.</li>
+                <li>No hidden fees or obligations.</li>
+                <li>Easy to enter and win!</li>
+            </ul>
+            <p>Don't miss out on this amazing opportunity! Click below to learn how to get your gift card.</p>
+            <a href="https://smrturl.co/a/sc457b7d427/10166?s1=" class="cta-button">Claim Your $100 Gift Card Now</a>
         </div>
-      </div>
+        <footer class="footer">
+            <p>&copy; 2025 Walmart Giveaway. All rights reserved.</p>
+        </footer>
     </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p>© 2025 Cash App Contest. All rights reserved.</p>
-      <p>This contest is not affiliated with or endorsed by Cash App or Block, Inc.</p>
-    </div>
-
-  </div>
-
-  <script>
-    document.getElementById('contest-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const age = document.querySelector('input[name="age"]:checked')?.value;
-
-      if (age === 'yes' && name.trim() !== '') {
-        // Open the contest link
-        window.open("https://smrturl.co/a/sc457b7d427/663?s1=", "_blank", "noopener,noreferrer");
-
-        // Show the thank you message
-        document.getElementById('user-name').textContent = name;
-        document.getElementById('form-container').style.display = 'none';
-        document.getElementById('thank-you-message').style.display = 'block';
-      } else {
-        alert('Please make sure you are over 18 and have entered your name!');
-      }
-    });
-
-    // Enable/Disable the submit button based on the form inputs
-    document.querySelectorAll('input[name="age"], #name').forEach(function(input) {
-      input.addEventListener('input', function() {
-        const age = document.querySelector('input[name="age"]:checked');
-        const name = document.getElementById('name').value;
-        const submitButton = document.getElementById('submit-btn');
-        submitButton.disabled = !(age && name.trim());
-      });
-    });
-  </script>
-
 </body>
 </html>
