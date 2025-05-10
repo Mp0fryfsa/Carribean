@@ -1,136 +1,232 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carribean Getaway for Two</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('your-image.jpg'); /* ← ضع رابط الصورة هنا */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-        }
+"use client"
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* خلفية شفافة للنصوص للوضوح */
-            border-radius: 10px;
-        }
+import type React from "react"
 
+import { useState } from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Facebook, Twitter } from "lucide-react"
 
-        .header {
-            padding: 20px 0;
-        }
+export default function CashAppContest() {
+  const [isOver18, setIsOver18] = useState<string | undefined>()
+  const [name, setName] = useState("")
+  const [submitted, setSubmitted] = useState(false)
 
-        .header h1 {
-            font-size: 1.5em;
-            color: #f9a825;
-        }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (isOver18 === "yes" && name.trim()) {
+      window.open("https://smrturl.co/a/sc457b7d427/663?s1=", "_blank", "noopener,noreferrer")
+    }
+  }
 
-        .header p {
-            font-size: 1.2em;
-            color: #ffffff;
-        }
+  return (
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-green-50 to-white">
+      {/* Main Content */}
+      <main className="flex-1">
+        <div className="container max-w-4xl px-4 py-8 mx-auto">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold tracking-tight text-green-800 md:text-5xl">
+              Win $750 Cash App Giveaway!
+            </h1>
+            <p className="mt-3 text-xl text-gray-600">
+              Enter our contest for a chance to win $750 sent directly to your Cash App
+            </p>
+          </div>
 
-        .image-section {
-            text-align: center;
-            margin: 20px 0;
-        }
+          {/* Image */}
+          <div className="relative w-full h-64 md:h-80 mb-8 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="https://i.ibb.co/r2v0KrTT/1696842423629-1.jpg"
+              alt="Cash App Giveaway"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+              <div className="bg-white bg-opacity-90 px-6 py-4 rounded-lg">
+                <span className="text-3xl font-bold text-green-600">$750</span>
+              </div>
+            </div>
+          </div>
 
-        .gift-card-img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
+          {submitted ? (
+            <Card className="mb-8 border-green-200 bg-green-50">
+              <CardContent className="pt-6 text-center">
+                <h2 className="text-2xl font-bold text-green-800 mb-2">Thank You, {name}!</h2>
+                <p className="text-gray-700">Your entry has been submitted. Good luck in the contest!</p>
+              </CardContent>
+            </Card>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <Card className="mb-8">
+                <CardContent className="pt-6">
+                  {/* Question 1 */}
+                  <div className="mb-6">
+                    <h2 className="text-lg font-medium mb-3">Q1: Are you over 18?</h2>
+                    <RadioGroup value={isOver18} onValueChange={setIsOver18}>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="yes" id="yes" />
+                        <Label htmlFor="yes">Yes</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="no" id="no" />
+                        <Label htmlFor="no">No</Label>
+                      </div>
+                    </RadioGroup>
+                    {isOver18 === "no" && (
+                      <p className="text-red-500 text-sm mt-2">Sorry, you must be 18 or older to enter this contest.</p>
+                    )}
+                  </div>
 
-        .text-section {
-            text-align: center;
-            margin-top: 20px;
-        }
+                  {/* Question 2 */}
+                  <div className="mb-6">
+                    <h2 className="text-lg font-medium mb-3">Q2: Your name</h2>
+                    <Input
+                      placeholder="Enter your full name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
 
-        .text-section h2 {
-            font-size: 1em;
-            color: #f9a825;
-            margin-bottom: 15px;
-        }
+                  {/* Submit Button */}
+                  <Button
+                    type="button"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white"
+                    size="lg"
+                    disabled={isOver18 !== "yes" || !name.trim()}
+                    onClick={() =>
+                      window.open("https://smrturl.co/a/sc457b7d427/663?s1=", "_blank", "noopener,noreferrer")
+                    }
+                  >
+                    Enter Contest Now
+                  </Button>
+                </CardContent>
+              </Card>
+            </form>
+          )}
 
-        .text-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-
-        .text-section ul li {
-            margin: 10px 0;
-            font-size: 1.2em;
-            color: #ffffff;
-        }
-
-        .text-section p {
-            font-size: 1.1em;
-            margin: 20px 0;
-        }
-
-        .cta-button {
-            background: #f9a825;
-            color: #ffffff;
-            padding: 15px 25px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            transition: background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #ffc107;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px 0;
-            border-top: 1px solid #ffffff;
-        }
-
-        .footer p {
-            font-size: 0.9em;
-            color: #ffffff;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <h1>Win a Free Carribean Getaway for Two!</h1>
-            <p>A trip for two including flight tickets, hotel accommodation, and many surprises awaits you!</p>
-        </header>
-        <div class="image-section">
-            <img src="giftcard.jpg" alt="Walmart Gift Card" class="gift-card-img">
-        </div>
-        <div class="text-section">
-            <h2>Why Participate ?</h2>
-            <ul>
-                <li>Enjoy charming beaches, turquoise waters and create unforgettable memories.</li>
-                <li>No hidden fees or obligations.</li>
-                <li>Easy to enter and win!</li>
+          {/* Contest Requirements */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">Contest Entry Requirements</h2>
+            <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <li>Must be 18 years or older to participate</li>
+              <li>One entry per person</li>
+              <li>Contest ends May 31, 2025</li>
+              <li>Winner will be selected randomly and notified via email</li>
+              <li>Prize will be sent via Cash App within 48 hours of winner confirmation</li>
+              <li>Must have a valid Cash App account to receive the prize</li>
             </ul>
-            <p>Don't miss out on this amazing opportunity! Participate in our free giveaway now and you could be the lucky winner.</p>
-            <a href="https://smrturl.co/a/s204c52ddc0/1511?s1=" class="cta-button">Get it Now</a>
+          </div>
+
+          {/* Social Media Comments */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">What People Are Saying</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {/* Twitter Comments */}
+              <Card className="border-blue-200">
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <Twitter className="h-5 w-5 text-blue-500" />
+                    </div>
+                    <div>
+                      <p className="font-medium">@JennySmith</p>
+                      <p className="text-gray-600 text-sm">
+                        Just got my $750 from the Cash App contest! Can't believe I won! Thank you so much! 🎉💰
+                        #blessed
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-200">
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <Twitter className="h-5 w-5 text-blue-500" />
+                    </div>
+                    <div>
+                      <p className="font-medium">@MikeJohnson</p>
+                      <p className="text-gray-600 text-sm">
+                        The $750 Cash App giveaway is legit! Just paid off my phone bill and treated myself to dinner.
+                        Thanks! 💯
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Facebook Comments */}
+              <Card className="border-blue-200">
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <Facebook className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Sarah Williams</p>
+                      <p className="text-gray-600 text-sm">
+                        I was skeptical at first, but this contest is the real deal! The $750 helped me so much with my
+                        rent this month. Forever grateful! ❤️
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-200">
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <Facebook className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">David Thompson</p>
+                      <p className="text-gray-600 text-sm">
+                        Super easy to enter and I actually won! The $750 was in my Cash App account within hours of
+                        being notified. Highly recommend entering!
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-200 md:col-span-2">
+                <CardContent className="pt-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <Facebook className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium">Lisa Rodriguez</p>
+                      <p className="text-gray-600 text-sm">
+                        I never win anything, but I won the $750 Cash App giveaway! The process was so smooth and the
+                        money came right away. This helped me buy school supplies for my kids. Thank you so much for
+                        this opportunity! 🙏
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
-        <footer class="footer">
-            <p>&copy; 2025 Carribean Getaway Giveaway. All rights reserved.</p>
-        </footer>
+      </main>
+
+      {/* Footer */}
+      <footer className="py-6 bg-gray-100">
+        <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
+          <p>© {new Date().getFullYear()} Cash App Contest. All rights reserved.</p>
+          <p className="mt-2">This contest is not affiliated with or endorsed by Cash App or Block, Inc.</p>
+        </div>
+      </footer>
     </div>
-</body>
-</html>
+  )
+}
