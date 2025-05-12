@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
@@ -23,7 +22,7 @@ export default function CashAppContest() {
           {/* Image Section */}
           <div className="mb-10 rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="https://i.ibb.co/r2v0KrTT/1696842423629-1.jpg"
+              src="/placeholder.svg?height=400&width=800"
               alt="$750 Cash App Giveaway"
               width={800}
               height={400}
@@ -58,20 +57,120 @@ export default function CashAppContest() {
                 <Input type="text" placeholder="Enter your full name" className="max-w-md" />
               </div>
 
-              {/* Submit Button with Redirect Link */}
-              <Link href="https://smrturl.co/a/sc457b7d427/663?s1=" passHref>
-                <Button asChild className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-2 text-lg">
-                  <a target="_blank" rel="noopener noreferrer">Enter Contest Now</a>
-                </Button>
-              </Link>
+              {/* Submit Button */}
+              <Button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-8 py-2 text-lg">
+                Enter Contest Now
+              </Button>
             </div>
           </div>
 
           {/* Contest Rules */}
-          {/* ... (unchanged content) ... */}
+          <div className="bg-gray-50 rounded-xl p-6 mb-10">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contest Entry Conditions</h2>
+            <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <li>Contest is open to legal residents of the United States who are 18 years or older.</li>
+              <li>Entry period ends on May 31, 2025 at 11:59 PM EST.</li>
+              <li>One winner will be selected randomly from all eligible entries.</li>
+              <li>Winner will be notified via email within 7 days after the contest ends.</li>
+              <li>Prize will be sent to the winner's Cash App account within 48 hours of verification.</li>
+              <li>No purchase necessary to enter or win.</li>
+              <li>Void where prohibited by law.</li>
+              <li>By entering, you agree to these official rules and our privacy policy.</li>
+            </ul>
+          </div>
 
           {/* Social Media Comments */}
-          {/* ... (unchanged content) ... */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-6">What People Are Saying</h2>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {/* Facebook Comment 1 */}
+              <Card className="p-4 border-l-4 border-blue-500">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <Facebook className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium">Sarah Johnson</div>
+                    <div className="text-gray-600 text-sm mb-2">via Facebook</div>
+                    <p className="text-gray-700">
+                      OMG I just received my $750 from the last contest! This is legit y'all! So grateful right now!
+                      🙏💰
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Twitter Comment 1 */}
+              <Card className="p-4 border-l-4 border-sky-400">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-sky-100 rounded-full p-2">
+                    <Twitter className="h-5 w-5 text-sky-500" />
+                  </div>
+                  <div>
+                    <div className="font-medium">@MikeRobinson</div>
+                    <div className="text-gray-600 text-sm mb-2">via Twitter</div>
+                    <p className="text-gray-700">
+                      Never thought I'd win but just got $750 sent to my Cash App! Perfect timing for my car repair.
+                      Thanks! #blessed
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Facebook Comment 2 */}
+              <Card className="p-4 border-l-4 border-blue-500">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <Facebook className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium">David Williams</div>
+                    <div className="text-gray-600 text-sm mb-2">via Facebook</div>
+                    <p className="text-gray-700">
+                      I was skeptical at first but this contest is 100% real! Just paid off my phone bill with the
+                      winnings. Entering again! 💯
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Twitter Comment 2 */}
+              <Card className="p-4 border-l-4 border-sky-400">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-sky-100 rounded-full p-2">
+                    <Twitter className="h-5 w-5 text-sky-500" />
+                  </div>
+                  <div>
+                    <div className="font-medium">@JennyLovesLife</div>
+                    <div className="text-gray-600 text-sm mb-2">via Twitter</div>
+                    <p className="text-gray-700">
+                      Single mom of 3 here - winning the $750 helped me buy school supplies for my kids. Thank you so
+                      much for this opportunity! ❤️
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Facebook Comment 3 */}
+              <Card className="p-4 border-l-4 border-blue-500 md:col-span-2">
+                <div className="flex items-start space-x-3">
+                  <div className="bg-blue-100 rounded-full p-2">
+                    <Facebook className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium">Alex Rodriguez</div>
+                    <div className="text-gray-600 text-sm mb-2">via Facebook</div>
+                    <p className="text-gray-700">
+                      Entered on a whim last month and won! The money was in my Cash App account within hours of being
+                      notified. Super easy process and the team was great to work with. Definitely entering again this
+                      month! 🤑
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
         </div>
       </main>
 
